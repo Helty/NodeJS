@@ -1,67 +1,10 @@
-var fs = require('fs');
+var http = require('http');
 
-
-fs.unlink('./new-one/some_new.txt', function() {
-  fs.rmdir('new-one', function() {});
+var server = http.createServer(function(req, res){
+  console.log("URL страницы: " + req.url);
+  res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+  res.end('Привет мир!');
 });
 
-
-//fs.unlink('some.txt', function () {});
-/*
-fs.mkdirSync('new-one');
-fs.rmdirSync('new-one');
-
-fs.mkdir('new-one', function(){
-  fs.writeFile('./new-one/some_new.txt', 'Привет мир!', function() {
-    console.log("Всё сработало!");
-  });
-});
-*/
-/*
-fs.readFile('text.txt', 'utf8', function(err, data){
-  console.log(data);
-});
-
-fs.writeFile('some.txt', 'Привет, это я', function(err, data) {});
-
-console.log("Test");
-
-var message = "Это новое сообщение\n" + file_readed;
-fs.writeFileSync('some_new_file.txt', message);
-*/
-/*
-var events = require('events');
-var util = require('util');
-
-
-{
-var myEmit = new events.EventEmitter();
-
-myEmit.on('some_event', function(text){
-  console.log(text);
-} );
-
-myEmit.emit('some_event', 'Обработчик событий сработал!');
-}
-
-
-var Cars = function(model) {
-  this.model = model;
-};
-
-util.inherits(Cars, events.EventEmitter);
-
-var bmw = new Cars('BMW');
-var audi = new Cars('Audi');
-var volve = new Cars('Volve');
-
-var cars = [bmw, audi, volve];
-cars.forEach(function(car) {
-  car.on('speed', function(text) {
-    console.log(car.model + " speed is - " + text);
-  });
-});
-
-bmw.emit('speed', '254.5 km');
-volve.emit('speed', '180 km');
-*/
+server.listen(3000, '127.0.0.1');
+console.log("Мы отслеживаем порт 3000");
