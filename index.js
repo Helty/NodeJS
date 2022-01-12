@@ -1,10 +1,10 @@
-var http = require('http');
+var fs = require('fs');
 
-var server = http.createServer(function(req, res){
-  console.log("URL страницы: " + req.url);
-  res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
-  res.end('Привет мир!');
+var myReadShort = fs.createReadStream(__dirname + '/article.txt');
+var myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
+
+
+myReadShort.on('data', function(chunk){
+  console.log("Новые данные получены:" );
+  myWriteShort.write(chunk);
 });
-
-server.listen(3000, '127.0.0.1');
-console.log("Мы отслеживаем порт 3000");
