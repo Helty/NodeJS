@@ -10,9 +10,11 @@
       .block {text-align: center; width: 70%; margin-left: 15%}
       h1 {color: #494949; font-size: 3.5em}
       p {color: #494949; font-size: 1.2em}
+      ul{text-align: left}
    </style>
  </head>
  <body>
+   <% include blocks/header.ejs %>
    <div class="block">
      <h1>Новостная страница с ID - <%= newsId %> </h1>
      <p><b>Title:</b> <%= obj.title %></p>
@@ -22,11 +24,11 @@
        о душе и плоти, о пассивном и активном и о других подобных вещах,
        начинаешь осознавать, что разум — это Будда,
        что Будда — это сущность разума, и что разум подобен бесконечности.</p>
-    <ul>
+     <ul>
       <% obj.paragraphs.forEach(function(item) { %>
         <li><%= item %></li>
       <% }); %>
-    </ul>
-   </div>
+     </ul>
+    </div>
  </body>
 </html>
