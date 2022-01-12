@@ -1,7 +1,21 @@
+var fs = require('fs');
+
+fs.readFile('text.txt', 'utf8', function(err, data){
+  console.log(data);
+});
+
+fs.writeFile('some.txt', 'Привет, это я', function(err, data) {});
+
+console.log("Test");
+
+var message = "Это новое сообщение\n" + file_readed;
+fs.writeFileSync('some_new_file.txt', message);
+
+/*
 var events = require('events');
 var util = require('util');
 
-/*
+
 {
 var myEmit = new events.EventEmitter();
 
@@ -11,7 +25,7 @@ myEmit.on('some_event', function(text){
 
 myEmit.emit('some_event', 'Обработчик событий сработал!');
 }
-*/
+
 
 var Cars = function(model) {
   this.model = model;
@@ -32,3 +46,4 @@ cars.forEach(function(car) {
 
 bmw.emit('speed', '254.5 km');
 volve.emit('speed', '180 km');
+*/
