@@ -17,7 +17,6 @@ var server = http.createServer(function(req, res){
     res.writeHead(404, {'Content-Type': 'text/html; charset=utf-8'});
     fs.createReadStream(__dirname + '/404.html').pipe(res);
   }
-
   /*
   var myReadShort = fs.createReadStream(__dirname + '/index.html', 'utf8');
   myReadShort.pipe(res);

@@ -1,0 +1,26 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "example app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Helty/NodeJS.git"
+  },
+  "keywords": [
+    "example",
+    "app"
+  ],
+  "author": "Andrew Shestakov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Helty/NodeJS/issues"
+  },
+  "homepage": "https://github.com/Helty/NodeJS#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
