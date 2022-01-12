@@ -1,5 +1,23 @@
 var fs = require('fs');
 
+
+fs.unlink('./new-one/some_new.txt', function() {
+  fs.rmdir('new-one', function() {});
+});
+
+
+//fs.unlink('some.txt', function () {});
+/*
+fs.mkdirSync('new-one');
+fs.rmdirSync('new-one');
+
+fs.mkdir('new-one', function(){
+  fs.writeFile('./new-one/some_new.txt', 'Привет мир!', function() {
+    console.log("Всё сработало!");
+  });
+});
+*/
+/*
 fs.readFile('text.txt', 'utf8', function(err, data){
   console.log(data);
 });
@@ -10,7 +28,7 @@ console.log("Test");
 
 var message = "Это новое сообщение\n" + file_readed;
 fs.writeFileSync('some_new_file.txt', message);
-
+*/
 /*
 var events = require('events');
 var util = require('util');
