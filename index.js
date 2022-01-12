@@ -1,10 +1,23 @@
 var fs = require('fs');
 
-var myReadShort = fs.createReadStream(__dirname + '/article.txt');
-var myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
+//Подключение к локальному серверу.
+var http = require('http');
 
+var server = http.createServer(function(req, res){
+  console.log("URL страницы: " + req.url);
+  res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'});
+  var obj = {
+    model: 'Audi',
+    speed: '234.5',
+    wheels: 4
+  }
+  res.end(JSON.stringify(obj))
 
-myReadShort.on('data', function(chunk){
-  console.log("Новые данные получены:" );
-  myWriteShort.write(chunk);
-});
+  /*
+  var myReadShort = fs.createReadStream(__dirname + '/index.html', 'utf8');
+  myReadShort.pipe(res);
+  */
+})
+
+server.listen(3000, '127.0.0.1');
+console.log("Мы отслеживаем порт 3000");
